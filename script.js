@@ -9,19 +9,21 @@ document.addEventListener('DOMContentLoaded', () => {
       input.addEventListener('input', () => {
         const value = input.value;
         if (value) {
-          if (index < inputs.length - 1) {
+           if (value && i < inputs.length - 1) {
             inputs[index + 1].focus();
           }
         }
       });
 
-      input.addEventListener('keydown', (e) => {
-        if (e.key === 'Backspace') {
-          if (input.value === '' && index > 0) {
-            inputs[index - 1].focus();
-            inputs[index - 1].value = '';
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Backspace") {
+          if (input.value === "") {
+            if (i > 0) {
+              inputs[i - 1].value = "";
+              inputs[i - 1].focus();
+            }
           } else {
-            input.value = '';
+            input.value = "";
           }
         }
       });
